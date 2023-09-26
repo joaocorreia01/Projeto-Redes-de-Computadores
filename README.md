@@ -30,8 +30,7 @@ Este é um chat simples em Python que permite que os clientes se conectem e conv
     ```bash
    python client.py
 4. Preencha o campo de remetente:
-   ![Exemplo]((https://github.com/Matheus-Rodrigues-1892/Projeto-Redes-de-Computadores/blob/main/image.png
-)
+   ![Exemplo](image.png)
 
 
 
