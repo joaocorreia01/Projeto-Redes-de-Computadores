@@ -27,9 +27,11 @@ Este é um chat simples em Python que permite que os clientes se conectem e conv
    	 ```bash
    python server.py
 3. Execute o cliente:
+4. Preencha o campo de remetente:
+   https://github.com/Matheus-Rodrigues-1892/Projeto-Redes-de-Computadores/blob/main/image.png
 
    ```bash
    python client.py
 
-4. Preencha o campo de rementente:
+6. Preencha o campo de rementente:
 
