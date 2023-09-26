@@ -8,7 +8,7 @@ Este é um chat simples em Python que permite que os clientes se conectem e conv
 ## Funcionalidades
 
 - **Conexão de Clientes:** Os clientes podem se conectar ao servidor especificando o endereço IP e a porta.
-- 
+  
 - **Definir Nome de Remetente:** Os usuários podem definir um nome de remetente que identifica suas mensagens para outros participantes do chat.
 
 - **Envio de Mensagens:** Os usuários podem enviar mensagens para outros participantes, especificando o destinatário, o assunto e a mensagem.
