@@ -33,7 +33,7 @@ Este é um chat simples em Python que permite que os clientes se conectem e conv
    ![Exemplo](image.png)
 
 5. Para enviar uma mensagem, digite quem receberá a mensagem, o assunto, e corpo da mensagem. Por fim clique em enviar mensagem:
-
+   ![Exemplo](image_2.png)
 
 
 
