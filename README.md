@@ -13,7 +13,7 @@ Este é um chat simples em Python que permite que os clientes se conectem e conv
 
 - **Envio de Mensagens:** Os usuários podem enviar mensagens para outros participantes, especificando o destinatário, o assunto e a mensagem.
 
-- **Recebimento de Mensagens:** O cliente recebe mensagens do servidor e exibe-as na interface gráfica.
+- **Recebimento de Mensagens:** O cliente recebe mensagens do servidor e exibe-as.
 
 - **Chat em Tempo Real:** Os clientes podem enviar mensagens em tempo real para todos os outros clientes conectados ao servidor.
 
@@ -31,6 +31,8 @@ Este é um chat simples em Python que permite que os clientes se conectem e conv
    python client.py
 4. Preencha o campo de remetente:
    ![Exemplo](image.png)
+
+5. Para enviar uma mensagem, digite quem receberá a mensagem, o assunto, e corpo da mensagem. Por fim clique em enviar mensagem:
 
 
 
