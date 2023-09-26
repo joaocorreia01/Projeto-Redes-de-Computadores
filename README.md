@@ -31,3 +31,5 @@ Este é um chat simples em Python que permite que os clientes se conectem e conv
    ```bash
    python client.py
 
+4. Preencha o campo de rementente:
+
