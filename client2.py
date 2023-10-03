@@ -66,8 +66,8 @@ window.geometry("+450+10")  # tamanho e psocionamento
 
 campo_conversa = tkinter.Frame(window)
 remetente = tkinter.StringVar()  # declarando o tipo do campo remetente
-destinatario = tkinter.StringVar()   # declarando o tipo do campo destinatário
-assunto = tkinter.StringVar()   # declarando o tipo do campo assunto
+destinatario = tkinter.StringVar()  # declarando o tipo do campo destinatário
+assunto = tkinter.StringVar()  # declarando o tipo do campo assunto
 mensagem = tkinter.StringVar()  # declarando o tipo do campo mensagem
 
 scrollbar = tkinter.Scrollbar(campo_conversa)
