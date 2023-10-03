@@ -26,15 +26,20 @@ Este é um chat simples em Python que permite que os clientes se conectem e conv
 2. Inicialize o servidor:
    	 ```bash
    python server.py
-3. Execute o cliente:
+3. Execute o cliente 1:
     ```bash
    python client.py
-4. Preencha o campo de remetente:
-   ![Exemplo](image.png)
 
-5. Para enviar uma mensagem, digite quem receberá a mensagem, o assunto, e corpo da mensagem. Por fim clique em enviar mensagem:
-   ![Exemplo](image_2.png)
+4. Execute o cliente 2:
+    ```bash
+   python client2.py
+    
+5. Preencha o campo de remetente 1 e clique enviar e o mesmo para o chat 2:
+   ![Exemplo](image.png)
    ![Exemplo](image_3.png)
+
+6. Para enviar uma mensagem, digite quem receberá a mensagem, o assunto, e corpo da mensagem. Por fim clique em enviar mensagem:
+   ![Exemplo](image_2.png)
 
 
 
