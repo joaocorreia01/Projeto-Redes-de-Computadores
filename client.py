@@ -28,7 +28,7 @@ def recebe():
             break
 
 
-def set_name():  # event is passed by binders.
+def set_name():
     """Lida com o recebimento do nome do remetente."""
     msg = remetente.get()
     print(msg)
@@ -43,6 +43,7 @@ def send():
         assunto.set("")
         mensagem.set("")  # limpa o campo de mensagem
         client_socket.send(bytes(msg, "utf8"))
+
 
 def exit():
     """Encerrar a conexão"""
@@ -65,8 +66,8 @@ window.geometry("+450+10")  # tamanho e psocionamento
 
 campo_conversa = tkinter.Frame(window)
 remetente = tkinter.StringVar()  # declarando o tipo do campo remetente
-destinatario = tkinter.StringVar()   # declarando o tipo do campo destinatário
-assunto = tkinter.StringVar()   # declarando o tipo do campo assunto
+destinatario = tkinter.StringVar()  # declarando o tipo do campo destinatário
+assunto = tkinter.StringVar()  # declarando o tipo do campo assunto
 mensagem = tkinter.StringVar()  # declarando o tipo do campo mensagem
 
 scrollbar = tkinter.Scrollbar(campo_conversa)
