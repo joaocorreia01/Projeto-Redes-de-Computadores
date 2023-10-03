@@ -28,7 +28,7 @@ def recebe():
             break
 
 
-def set_name():  # event is passed by binders.
+def set_name(): 
     """Lida com o recebimento do nome do remetente."""
     msg = remetente.get()
     print(msg)

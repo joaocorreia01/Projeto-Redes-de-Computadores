@@ -51,20 +51,14 @@ def broadcast(msg, prefix=""):
     for sock in clients:
         sock.send(bytes(prefix, "utf8") + msg)
 
-# ... Seu código de servidor existente ...
-
-def send_to_all(message, sender="Servidor"):
-    """Envia uma mensagem para todos os clientes conectados."""
-    for client in clients:
-        client.send(bytes(sender + ": " + message, "utf8"))
-
-
 if __name__ == "__main__":
     SERVER = socket(AF_INET, SOCK_STREAM)
     SERVER.bind(ADDR)
     SERVER.listen(5)
     print(f"Servidor ouvindo em {HOST}:{PORT}")
 
+    accept_thread = Thread(target=accept_connections)
+    accept_thread.start()
 
     while True:
         # Aguarda a entrada do servidor a partir do terminal
@@ -76,7 +70,4 @@ if __name__ == "__main__":
             break
         else:
             # Caso contrário, envia a mensagem para todos os clientes
-            accept_thread = Thread(target=accept_connections)
-            accept_thread.start()
-            accept_thread.join()
             send_to_all(server_input, sender="Servidor")
