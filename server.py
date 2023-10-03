@@ -10,6 +10,9 @@ HOST = "localhost"
 PORT = 50000
 ADDR = (HOST, PORT)
 
+quit = "{quit}"  # Definindo a mensagem de saída
+
+
 def accept_connections():
     """Esse loop aguarda eternamente as conexões de clientes."""
     while True:
@@ -23,10 +26,11 @@ def accept_connections():
             print(f"Erro ao aceitar conexão: {str(e)}")
             break
 
+
 def handle_client(client):
     """Lida com uma única conexão de cliente."""
     name = client.recv(1024).decode("utf8")
-    client.send(bytes(f"Bem-vindo, {name}! Digite {quit} para sair.", "utf8"))
+    client.send(bytes(f"Bem-vindo, {name}! Digite '{quit}' para sair.", "utf8"))
     msg = f"{name} entrou no chat."
     broadcast(bytes(msg, "utf8"))
     clients[client] = name
@@ -34,10 +38,10 @@ def handle_client(client):
     while True:
         try:
             msg = client.recv(1024)
-            if msg != bytes("{quit}", "utf8"):
-                broadcast(msg, name + ": ")
+            if msg != bytes(quit, "utf8"):
+                broadcast(msg, f"{name}: ")
             else:
-                client.send(bytes("{quit}", "utf8"))
+                client.send(bytes(quit, "utf8"))
                 client.close()
                 del clients[client]
                 broadcast(bytes(f"{name} saiu do chat.", "utf8"))
@@ -46,17 +50,11 @@ def handle_client(client):
             print(f"Erro ao lidar com cliente {name}: {str(e)}")
             break
 
+
 def broadcast(msg, prefix=""):
     """Envia uma mensagem para todos os clientes conectados."""
     for sock in clients:
         sock.send(bytes(prefix, "utf8") + msg)
-
-# ... Seu código de servidor existente ...
-
-def send_to_all(message, sender="Servidor"):
-    """Envia uma mensagem para todos os clientes conectados."""
-    for client in clients:
-        client.send(bytes(sender + ": " + message, "utf8"))
 
 
 if __name__ == "__main__":
@@ -65,18 +63,20 @@ if __name__ == "__main__":
     SERVER.listen(5)
     print(f"Servidor ouvindo em {HOST}:{PORT}")
 
+    accept_thread = Thread(target=accept_connections)
+    accept_thread.start()
 
     while True:
         # Aguarda a entrada do servidor a partir do terminal
         server_input = input("Digite uma mensagem para enviar para todos os clientes (ou 'quit' para sair): ")
 
         if server_input.lower() == "quit":
-            # Se o servidor digitar 'quit', fecha o servidor e encerra o programa
+            # Encerra o servidor e desconecta todos os clientes
+            for client_socket in clients:
+                client_socket.send(bytes(quit, "utf8"))
+                client_socket.close()
             SERVER.close()
             break
         else:
             # Caso contrário, envia a mensagem para todos os clientes
-            accept_thread = Thread(target=accept_connections)
-            accept_thread.start()
-            accept_thread.join()
-            send_to_all(server_input, sender="Servidor")
+            broadcast(bytes(server_input, "utf8"))
